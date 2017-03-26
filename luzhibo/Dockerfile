@@ -5,7 +5,7 @@ MAINTAINER Baozisoftware Diklic "https://github.com/Baozisoftware"
 #Install git,golang
 RUN apt-get update
 RUN apt-get install git golang -y
-ENV GOPATH ~/go
+ENV GOPATH /go
 
 #Build Luzhibo
 RUN go get github.com/josephspurrier/goversioninfo/cmd/goversioninfo
