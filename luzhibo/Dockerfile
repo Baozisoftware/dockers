@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 MAINTAINER Baozisoftware Diklic "https://github.com/Baozisoftware"
 
 #Install Luzhibo
-ADD https://github.com/Baozisoftware/Luzhibo-go/releases/download/latest/releases.7z 
+ADD https://github.com/Baozisoftware/Luzhibo-go/releases/download/latest/releases.7z /
 RUN apt-get update
 RUN apt-get install p7zip
 RUN 7z x releases.7z
