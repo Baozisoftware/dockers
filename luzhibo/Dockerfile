@@ -12,7 +12,7 @@ RUN go get github.com/josephspurrier/goversioninfo/cmd/goversioninfo
 RUN go get github.com/PuerkitoBio/goquery
 RUN go get github.com/pkg/browser
 RUN go get github.com/Baozisoftware/qrcode-terminal-go
-RUN git clone https://github.com/Baozisoftware/Luzhibo-go.git $GOPATH\src\luzhibo
+RUN git clone https://github.com/Baozisoftware/Luzhibo-go.git $GOPATH/src/luzhibo
 RUN go build luzhibo
 
 #Other
