@@ -2,18 +2,9 @@
 FROM ubuntu:16.04
 MAINTAINER Baozisoftware Diklic "https://github.com/Baozisoftware"
 
-#Install git,golang
-RUN apt-get update
-RUN apt-get install git golang -y
-ENV GOPATH /go
-
-#Build Luzhibo
-RUN go get github.com/josephspurrier/goversioninfo/cmd/goversioninfo
-RUN go get github.com/PuerkitoBio/goquery
-RUN go get github.com/pkg/browser
-RUN go get github.com/Baozisoftware/qrcode-terminal-go
-RUN git clone https://github.com/Baozisoftware/Luzhibo-go.git $GOPATH/src/luzhibo
-RUN go build luzhibo
+#Download luzhibo
+ADD https://github.com/Baozisoftware/luzhibo/releases/download/latest/luzhibo_linux_amd64 /
+RUN chmod +x luzhibo
 
 #Other
 EXPOSE 12216
