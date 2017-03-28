@@ -4,7 +4,7 @@ MAINTAINER Baozisoftware Diklic "https://github.com/Baozisoftware"
 
 #Install FFmpeg
 RUN apt-get update
-RUN apt-get -y ffmpeg
+RUN apt-get install -y ffmpeg
 
 #Download luzhibo
 ADD https://github.com/Baozisoftware/luzhibo/releases/download/latest/luzhibo_linux_amd64 /
