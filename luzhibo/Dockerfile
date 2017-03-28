@@ -4,8 +4,8 @@ MAINTAINER Baozisoftware Diklic "https://github.com/Baozisoftware"
 
 #Download luzhibo
 ADD https://github.com/Baozisoftware/luzhibo/releases/download/latest/luzhibo_linux_amd64 /
-RUN chmod +x luzhibo
+RUN chmod +x luzhibo_linux_amd64
 
 #Other
 EXPOSE 12216
-CMD /luzhibo
+CMD /luzhibo_linux_amd64
