@@ -14,4 +14,4 @@ RUN chmod +x luzhibo_linux_amd64
 
 #Other
 EXPOSE $PORT
-CMD /luzhibo_linux_amd64 -port $PORT -nopenui
+CMD /luzhibo_linux_amd64 -d -port $PORT
