@@ -14,4 +14,4 @@ RUN chmod +x /shadowsocks2-linux
 
 #Other
 EXPOSE $SSPORT
-CMD /shadowsocks2-linux -s "ss://$SSM:SSKEY@:SSPORT"
+CMD /shadowsocks2-linux -s "ss://$SSM:$SSKEY@:$SSPORT"
