@@ -1,17 +1,24 @@
 #Base image
 FROM ubuntu:16.04
-MAINTAINER Baozisoftware Diklic "https://github.com/Baozisoftware"
+MAINTAINER Baozisoftware "https://github.com/Baozisoftware"
 
-ENV SSVERION 0.0.11
-ENV SSPORT 12345
-ENV SSM AEAD_CHACHA20_POLY1305
-ENV SSKEY 12345678
+ENV V2VERSION 4.25.1
+ENV V2PORT 80
+ENV V2GUID 214385d0-82ca-4a12-a7b9-eb3229ceb890
+ENV V2PATH b54f
 
-#Install Shadowsocks
-ADD https://github.com/shadowsocks/go-shadowsocks2/releases/download/v$SSVERION/shadowsocks2-linux.gz /
-RUN gunzip shadowsocks2-linux.gz
-RUN chmod +x /shadowsocks2-linux
+#Install V2ray
+ADD https://github.com/v2ray/v2ray-core/releases/download/v$V2VERSION/v2ray-linux-64.zip /
+RUN apt update
+RUN apt install unzip
+RUN unzip v2ray-linux-64.zip
 
-#Other
-EXPOSE $SSPORT
-CMD /shadowsocks2-linux -s "ss://$SSM:$SSKEY@:$SSPORT"
+#Setup V2ray
+COPY config.json /config.json
+RUN sed -i "s/_port_/$V2PORT/g" /config.json
+RUN sed -i "s/_guid_/$V2GUID/g" /config.json
+RUN sed -i "s/_path_/$V2PATH/g" /config.json
+
+#Start
+EXPOSE $V2PORT
+CMD ["/v2ray","-config","/config.json"]
