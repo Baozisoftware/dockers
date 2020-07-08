@@ -12,8 +12,8 @@
         ]
       },
       "streamSettings": {
-        "network": "h2",
-        "httpSettings": {
+        "network": "ws",
+        "wsSettings": {
           "path": "/_path_"
         }
       }
